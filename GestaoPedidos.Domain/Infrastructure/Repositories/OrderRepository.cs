@@ -1,8 +1,8 @@
-using Microsoft.EntityFrameworkCore;
 using GestaoPedidos.Service.Application.Interfaces;
+using GestaoPedidos.Service.Application.Models;
 using GestaoPedidos.Service.Domain.Entities;
 using GestaoPedidos.Service.Infrastructure.Data;
-using GestaoPedidos.Service.Application.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPedidos.Service.Infrastructure.Repositories;
 

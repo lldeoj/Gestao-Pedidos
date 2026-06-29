@@ -1,8 +1,6 @@
-using GestaoPedidos.Service.Application.Orders.Commands.CreateOrder;
-using GestaoPedidos.Service.Domain.Entities;
-using MediatR;
 using GestaoPedidos.Service.Application.Interfaces;
 using GestaoPedidos.Service.Domain.Entities;
+using MediatR;
 
 namespace GestaoPedidos.Service.Application.Orders.Commands.Handle;
 

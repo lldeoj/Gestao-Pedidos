@@ -32,10 +32,10 @@ namespace GestaoPedidos.Test
         public async Task GenerateTokenAsync_WithValidCredentials_ReturnsAuthenticatedToken()
         {
             // Arrange
-            var loginRequest = new LoginRequest 
-            { 
-                Email = "dev@martech.com", 
-                Password = "Senha@123" 
+            var loginRequest = new LoginRequest
+            {
+                Email = "dev@martech.com",
+                Password = "Senha@123"
             };
             var cts = new CancellationTokenSource();
 
@@ -54,10 +54,10 @@ namespace GestaoPedidos.Test
         public async Task GenerateTokenAsync_WithInvalidCredentials_ReturnsUnAuthenticatedToken()
         {
             // Arrange
-            var loginRequest = new LoginRequest 
-            { 
-                Email = "invalid@email.com", 
-                Password = "WrongPassword" 
+            var loginRequest = new LoginRequest
+            {
+                Email = "invalid@email.com",
+                Password = "WrongPassword"
             };
             var cts = new CancellationTokenSource();
 
@@ -75,10 +75,10 @@ namespace GestaoPedidos.Test
         public async Task GenerateTokenAsync_WithNullEmail_ReturnsUnAuthenticatedToken()
         {
             // Arrange
-            var loginRequest = new LoginRequest 
-            { 
-                Email = null, 
-                Password = "Senha@123" 
+            var loginRequest = new LoginRequest
+            {
+                Email = null,
+                Password = "Senha@123"
             };
             var cts = new CancellationTokenSource();
 
@@ -94,10 +94,10 @@ namespace GestaoPedidos.Test
         public async Task GenerateTokenAsync_WithEmptyPassword_ReturnsUnAuthenticatedToken()
         {
             // Arrange
-            var loginRequest = new LoginRequest 
-            { 
-                Email = "dev@martech.com", 
-                Password = "" 
+            var loginRequest = new LoginRequest
+            {
+                Email = "dev@martech.com",
+                Password = ""
             };
             var cts = new CancellationTokenSource();
 
@@ -113,10 +113,10 @@ namespace GestaoPedidos.Test
         public async Task GenerateTokenAsync_ValidToken_ContainsEmailClaim()
         {
             // Arrange
-            var loginRequest = new LoginRequest 
-            { 
-                Email = "dev@martech.com", 
-                Password = "Senha@123" 
+            var loginRequest = new LoginRequest
+            {
+                Email = "dev@martech.com",
+                Password = "Senha@123"
             };
             var cts = new CancellationTokenSource();
 
@@ -140,10 +140,10 @@ namespace GestaoPedidos.Test
         public async Task GenerateTokenAsync_ValidToken_HasExpirationInFuture()
         {
             // Arrange
-            var loginRequest = new LoginRequest 
-            { 
-                Email = "dev@martech.com", 
-                Password = "Senha@123" 
+            var loginRequest = new LoginRequest
+            {
+                Email = "dev@martech.com",
+                Password = "Senha@123"
             };
             var cts = new CancellationTokenSource();
             var beforeGeneration = DateTime.UtcNow;

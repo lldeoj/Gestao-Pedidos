@@ -3,8 +3,8 @@ using GestaoPedidos.Service.Application.Models;
 using GestaoPedidos.Service.Application.Orders.Commands;
 using GestaoPedidos.Service.Application.Orders.Commands.Handle;
 using GestaoPedidos.Service.Application.Orders.Queries;
-using GestaoPedidos.Service.Domain.Entities;
 using GestaoPedidos.Service.Application.Orders.Queries.GetOrders;
+using GestaoPedidos.Service.Domain.Entities;
 using Moq;
 
 namespace GestaoPedidos.Test
@@ -33,10 +33,10 @@ namespace GestaoPedidos.Test
                 new CreateOrderItemDto { ProductName = "Product 2", Quantity = 1, UnitPrice = 50m }
             };
 
-            var command = new CreateOrderCommand 
-            { 
-                CustomerId = customerId, 
-                Items = items 
+            var command = new CreateOrderCommand
+            {
+                CustomerId = customerId,
+                Items = items
             };
 
             _mockOrderRepository
@@ -54,11 +54,11 @@ namespace GestaoPedidos.Test
             Assert.NotEqual(Guid.Empty, result);
 
             _mockOrderRepository.Verify(
-                x => x.AddAsync(It.IsAny<Order>(), It.IsAny<CancellationToken>()), 
+                x => x.AddAsync(It.IsAny<Order>(), It.IsAny<CancellationToken>()),
                 Times.Once);
 
             _mockUnitOfWork.Verify(
-                x => x.SaveChangesAsync(It.IsAny<CancellationToken>()), 
+                x => x.SaveChangesAsync(It.IsAny<CancellationToken>()),
                 Times.Once);
         }
 
@@ -74,10 +74,10 @@ namespace GestaoPedidos.Test
                 new CreateOrderItemDto { ProductName = "Product C", Quantity = 1, UnitPrice = 100m }
             };
 
-            var command = new CreateOrderCommand 
-            { 
-                CustomerId = customerId, 
-                Items = items 
+            var command = new CreateOrderCommand
+            {
+                CustomerId = customerId,
+                Items = items
             };
 
             Order capturedOrder = null;
@@ -103,13 +103,13 @@ namespace GestaoPedidos.Test
         public async Task Handle_RepositoryThrowsException_PropagatesException()
         {
             // Arrange
-            var command = new CreateOrderCommand 
-            { 
-                CustomerId = Guid.NewGuid(), 
-                Items = new List<CreateOrderItemDto> 
-                { 
-                    new CreateOrderItemDto { ProductName = "Product", Quantity = 1, UnitPrice = 100m } 
-                } 
+            var command = new CreateOrderCommand
+            {
+                CustomerId = Guid.NewGuid(),
+                Items = new List<CreateOrderItemDto>
+                {
+                    new CreateOrderItemDto { ProductName = "Product", Quantity = 1, UnitPrice = 100m }
+                }
             };
 
             _mockOrderRepository

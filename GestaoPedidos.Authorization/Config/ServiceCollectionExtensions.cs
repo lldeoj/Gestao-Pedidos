@@ -1,16 +1,10 @@
-﻿using FluentValidation;
-using GestaoPedidos.Authentication;
-using MediatR;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Reflection;
 using System.Text;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
 
 namespace GestaoPedidos.Authentication
 {

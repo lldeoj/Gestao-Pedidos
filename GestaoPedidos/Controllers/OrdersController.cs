@@ -1,8 +1,8 @@
+using GestaoPedidos.Service.Application.Orders.Commands;
+using GestaoPedidos.Service.Application.Orders.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using GestaoPedidos.Service.Application.Orders.Commands;
-using GestaoPedidos.Service.Application.Orders.Queries;
 
 namespace GestaoPedidos.API.Controllers;
 
@@ -38,10 +38,10 @@ public class OrdersController : ControllerBase
     {
         var query = new GetOrderByIdQuery { Id = id };
         var result = await _mediator.Send(query);
-        
+
         if (result == null)
             return NotFound(new { message = $"Order with ID {id} not found" });
-            
+
         return Ok(result);
     }
 

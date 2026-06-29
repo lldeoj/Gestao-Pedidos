@@ -1,5 +1,5 @@
-using MediatR;
 using GestaoPedidos.Service.Application.Interfaces;
+using MediatR;
 
 namespace GestaoPedidos.Service.Application.Orders.Queries;
 
@@ -15,7 +15,7 @@ public class GetOrderByIdQueryHandler : IRequestHandler<GetOrderByIdQuery, Order
     public async Task<OrderDto?> Handle(GetOrderByIdQuery request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(request.Id, cancellationToken);
-        
+
         if (order == null)
             return null;
 

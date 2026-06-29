@@ -1,7 +1,6 @@
-using MediatR;
-using GestaoPedidos.Service.Application.Interfaces;
-using GestaoPedidos.Service.Domain.Exceptions;
 using GestaoPedidos.Service.Application.Exceptions;
+using GestaoPedidos.Service.Application.Interfaces;
+using MediatR;
 
 namespace GestaoPedidos.Service.Application.Orders.Commands.Handle;
 
@@ -19,10 +18,10 @@ public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand>
     public async Task Handle(CancelOrderCommand request, CancellationToken cancellationToken)
     {
         var order = await _orderRepository.GetByIdAsync(request.OrderId, cancellationToken);
-        
+
         if (order == null)
             throw new NotFoundException($"Order with ID {request.OrderId} not found");
-            
+
         order.Cancel();
         await _unitOfWork.SaveChangesAsync(cancellationToken);
     }

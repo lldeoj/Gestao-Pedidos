@@ -1,8 +1,7 @@
-using Microsoft.OpenApi;
 using GestaoPedidos.Authentication;
 using GestaoPedidos.Service;
-using Swashbuckle.AspNetCore.SwaggerUI;
 using GestaoPedidos.Service.Infrastructure.Data;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,12 +47,12 @@ using (var scope = app.Services.CreateScope())
 
 //if (app.Environment.IsDevelopment())
 //{
-    app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "GestaoPedidos API v1");
-    });
+app.MapOpenApi();
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "GestaoPedidos API v1");
+});
 //}
 
 app.AddAuthenticationJwt();

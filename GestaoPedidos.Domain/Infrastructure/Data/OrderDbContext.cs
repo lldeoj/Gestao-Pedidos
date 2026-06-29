@@ -1,5 +1,5 @@
-using Microsoft.EntityFrameworkCore;
 using GestaoPedidos.Service.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoPedidos.Service.Infrastructure.Data;
 
@@ -18,7 +18,7 @@ public class OrderDbContext : DbContext
             entity.Property(e => e.CustomerId).IsRequired();
             entity.Property(e => e.Status).HasConversion<string>();
             entity.Property(e => e.CreatedAt).IsRequired();
-            
+
             entity.HasMany(e => e.Items)
                   .WithOne()
                   .HasForeignKey(e => e.OrderId)

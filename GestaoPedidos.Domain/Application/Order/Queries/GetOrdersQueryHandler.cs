@@ -1,6 +1,6 @@
-using MediatR;
 using GestaoPedidos.Service.Application.Interfaces;
 using GestaoPedidos.Service.Application.Models;
+using MediatR;
 
 namespace GestaoPedidos.Service.Application.Orders.Queries.GetOrders;
 
@@ -35,9 +35,9 @@ public class GetOrdersQueryHandler : IRequestHandler<GetOrdersQuery, PaginatedLi
         }).ToList();
 
         return new PaginatedList<OrderDto>(
-            orderDtos, 
-            orders.TotalCount, 
-            orders.Page, 
+            orderDtos,
+            orders.TotalCount,
+            orders.Page,
             orders.PageSize);
     }
 }

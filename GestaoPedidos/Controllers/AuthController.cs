@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using GestaoPedidos.Authentication;
+﻿using GestaoPedidos.Authentication;
 using GestaoPedidos.Authentication.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GestaoPedidos.API.Controllers;
 
@@ -17,10 +17,10 @@ public class AuthController : ControllerBase
 
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request, CancellationToken cancellationToken)
-    { 
+    {
         var result = await _tokenGenerator.GenerateTokenAsync(request, cancellationToken);
 
-        if(result.IsAuthenticated)
+        if (result.IsAuthenticated)
         {
             return Ok(result);
         }

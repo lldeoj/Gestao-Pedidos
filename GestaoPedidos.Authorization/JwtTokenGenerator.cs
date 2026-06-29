@@ -1,9 +1,9 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using GestaoPedidos.Authentication.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace GestaoPedidos.Authentication;
 
@@ -19,7 +19,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     public async Task<TokenResponse> GenerateTokenAsync(LoginRequest email, CancellationToken cancellationToken)
     {
         //Check if the email is valid (you can add more complex validation if needed)
-        if(await IsValidEmail(email, cancellationToken))
+        if (await IsValidEmail(email, cancellationToken))
         {
             var token = GenerateJwtToken(email.Email, cancellationToken);
             return new TokenResponse
@@ -39,7 +39,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             };
         }
     }
-    
+
     private async Task<bool> IsValidEmail(LoginRequest login, CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(login.Email) || string.IsNullOrWhiteSpace(login.Password))
@@ -53,12 +53,12 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 
 
     private string GenerateJwtToken(string email, CancellationToken cancellationToken)
-    { 
+    {
         var key = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? "SuperSecretKeyForJWT@2024!@#$%123456"));
-        
+
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        
+
         var claims = new[]
         {
             new Claim(ClaimTypes.Email, email),

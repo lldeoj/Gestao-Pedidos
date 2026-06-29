@@ -1,6 +1,6 @@
 using GestaoPedidos.Service.Domain.Entities;
-using GestaoPedidos.Service.Domain.Exceptions;
 using GestaoPedidos.Service.Domain.Enums;
+using GestaoPedidos.Service.Domain.Exceptions;
 
 namespace GestaoPedidos.Test
 {

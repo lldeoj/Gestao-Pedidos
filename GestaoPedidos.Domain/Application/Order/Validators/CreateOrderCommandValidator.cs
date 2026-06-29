@@ -17,10 +17,10 @@ public class CreateOrderCommandValidator : AbstractValidator<CreateOrderCommand>
         {
             item.RuleFor(x => x.ProductName)
                 .NotEmpty().WithMessage("Product name is required");
-            
+
             item.RuleFor(x => x.Quantity)
                 .GreaterThan(0).WithMessage("Quantity must be greater than zero");
-            
+
             item.RuleFor(x => x.UnitPrice)
                 .GreaterThan(0).WithMessage("Unit price must be greater than zero");
         });

@@ -1,4 +1,3 @@
-using FluentValidation;
 using GestaoPedidos.Service.Application;
 using GestaoPedidos.Service.Application.Interfaces;
 using GestaoPedidos.Service.Infrastructure.Data;
@@ -15,7 +14,8 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddOrder(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMediatR(cfg => {
+        services.AddMediatR(cfg =>
+        {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
 
@@ -24,7 +24,7 @@ public static class ServiceCollectionExtensions
             options.UseSqlite(configuration.GetConnectionString("DefaultConnection"));
         });
 
-       // services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        // services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
         services.AddScoped<IOrderRepository, OrderRepository>();
