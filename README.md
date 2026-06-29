@@ -55,7 +55,7 @@ GestaoPedidos/
 │   ├── Program.cs                      # Configuração da aplicação
 │   └── appsettings.json               # Configurações
 │
-├── GestaoPedidos.Domain/               # Camada de Domínio e Aplicação
+├── GestaoPedidos.Service/               # Camada de Domínio e Aplicação
 │   ├── Domain/
 │   │   ├── Entities/                   # Entidades do domínio
 │   │   │   ├── Order.cs
@@ -86,10 +86,10 @@ GestaoPedidos/
 │   │   ├── LoginRequest.cs
 │   │   └── TokenResponse.cs
 │   └── Config/
-│       └── ServiceCollectionExtensions.cs
+│       └── ServiceCollectionExtensions.cs   # Configuração da Autenticação
 │
 └── GestaoPedidos.Test/                 # Testes Unitários
-	├── UnitTest1.cs                    # Testes JWT
+	├── JwtTokenGeneratorTests.cs       # Testes JWT
 	├── OrderHandlerTests.cs            # Testes CQRS
 	├── OrderEntityTests.cs             # Testes de entidades
 	└── OrderRepositoryTests.cs         # Testes de repositório
@@ -280,19 +280,6 @@ Execução de teste concluída. 34 teste(s) executado(s). 34 Aprovado, 0 Com Fal
 
 ## 🏗️ Arquitetura
 
-### Camadas
-
-```
-┌─────────────────────────────────────┐
-│      API Layer (Controllers)         │
-├─────────────────────────────────────┤
-│   Application Layer (CQRS Handlers)  │
-├─────────────────────────────────────┤
-│    Domain Layer (Entities, Rules)    │
-├─────────────────────────────────────┤
-│  Infrastructure Layer (Data Access)  │
-└─────────────────────────────────────┘
-```
 
 ### Padrões
 
@@ -394,6 +381,6 @@ Desenvolvido como projeto de gestão de pedidos com arquitetura moderna em .NET.
 
 ---
 
-**Última atualização:** Dezembro 2024
+**Última atualização:** Junho 2026
 **Versão:** 1.0.0
 **Status:** ✅ Em produção
