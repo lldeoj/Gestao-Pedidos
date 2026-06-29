@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Itens de Solução/">
+    <File Path="../../../../Downloads/Teste Prático — Desenvolvedor .NET Senior.pdf" />
+  </Folder>
+  <Project Path="GestaoPedidos.Authorization/GestaoPedidos.Authentication.csproj" Id="bd2019b9-40a6-42cf-8b7c-34490202f2b0" />
+  <Project Path="GestaoPedidos.Domain/GestaoPedidos.Service.csproj" Id="a4b88eba-260b-43a0-92b4-c743610aff81" />
+  <Project Path="GestaoPedidos.Test/GestaoPedidos.Test.csproj" Id="03519669-f404-4caa-a886-80b7256800a0" />
+  <Project Path="GestaoPedidos/GestaoPedidos.API.csproj" />
+</Solution>
