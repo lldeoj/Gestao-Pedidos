@@ -1,18 +1,40 @@
-version: '3.8'
+# Docker Compose - GestaoPedidos API
+# Configuração de produção
 
 services:
-  api:
+  gestao-pedidos-api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: GestaoPedidos/Dockerfile
+      args:
+        BUILD_CONFIGURATION: Release
+    container_name: gestao-pedidos-api
     ports:
       - "5000:8080"
+      - "5001:8081"
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Data Source=/data/orders.db
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://+:8080
+      ConnectionStrings__DefaultConnection: Data Source=/app/data/orders.db
+      Jwt__Key: SuperSecretKeyForJWT@2024!@#$%123456
+      Jwt__Issuer: GestaoPedidos.Service
+      Jwt__Audience: GestaoPedidos.Service
     volumes:
-      - sqlite_data:/data
+      - sqlite_data:/app/data
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - gestao-pedidos-network
 
 volumes:
   sqlite_data:
+    driver: local
+
+networks:
+  gestao-pedidos-network:
+    driver: bridge

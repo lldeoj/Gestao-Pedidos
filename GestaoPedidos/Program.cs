@@ -46,15 +46,15 @@ using (var scope = app.Services.CreateScope())
     Console.WriteLine("[DB] Database initialized successfully");
 }
 
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "GestaoPedidos API v1");
     });
-}
+//}
 
 app.AddAuthenticationJwt();
 app.UseHttpsRedirection();
