@@ -356,28 +356,9 @@ COPY --from=build /app/build .
 ENTRYPOINT ["dotnet", "GestaoPedidos.dll"]
 ```
 
-## 📖 Documentação Adicional
-
-- [ASP.NET Core](https://docs.microsoft.com/aspnet/core)
-- [Entity Framework Core](https://docs.microsoft.com/ef/core)
-- [MediatR](https://github.com/jbogard/MediatR)
-- [FluentValidation](https://fluentvalidation.net)
-- [JWT](https://jwt.io)
-
-## 🤝 Contribuindo
-
-1. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-2. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-3. Push para a branch (`git push origin feature/AmazingFeature`)
-4. Abra um Pull Request
-
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
-
-## 👨‍💻 Autor
-
-Desenvolvido como projeto de gestão de pedidos com arquitetura moderna em .NET.
 
 ---
 
